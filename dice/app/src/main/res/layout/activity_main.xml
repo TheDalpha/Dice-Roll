@@ -9,24 +9,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center|top">
+        android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dice Roll"
         android:textSize="24dp"
+        android:layout_gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/btnHist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:text="History"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_weight="0.5">
 
 
 
@@ -52,20 +60,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Roll"
-            android:layout_marginTop="25dp"/>
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="10dp"/>
 
-        <ListView
-            android:id="@+id/lvPrior"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/btnClear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Clear"
-            android:layout_gravity="left"/>
 
     </LinearLayout>
 
