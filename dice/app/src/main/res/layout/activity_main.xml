@@ -30,11 +30,18 @@
             android:text="History"/>
 
         <LinearLayout
+            android:id="@+id/llDice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_weight="0.5">
+
+            <GridLayout
+                android:id="@+id/glDice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
 
 
 
@@ -44,24 +51,45 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/d1"
                 tools:srcCompat="@drawable/d1"
-                android:layout_marginRight="25dp"/>
+                android:layout_marginRight="25dp"
+                android:layout_gravity="center"/>
 
-            <ImageView
-                android:id="@+id/imgDice2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/d1"
-                tools:srcCompat="@drawable/d1" />
-
+            </GridLayout>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnRoll"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Roll"
-            android:layout_gravity="bottom|center"
-            android:layout_marginBottom="10dp"/>
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/btnPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:layout_weight="0.33"
+                android:textSize="18dp"
+                />
+
+            <Button
+                android:id="@+id/btnRoll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Roll"
+                android:layout_weight="0.33"/>
+
+            <Button
+                android:id="@+id/btnMinus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="18dp"
+                android:layout_weight="0.33"/>
+        </LinearLayout>
+
+
 
 
 
