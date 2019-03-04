@@ -67,8 +67,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         glDicer.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
-        glDicer.setColumnCount(2);
+        glDicer.setColumnCount(3);
         glDicer.setRowCount(3);
+        for (final ImageView dice : dices) {
+            dice.getLayoutParams().width = 200;
+            dice.getLayoutParams().height = 200;
+        }
 
 
         Button btnHist = findViewById(R.id.btnHist);
@@ -89,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             glDicer.removeAllViews();
             glDicer.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
             glDicer.setColumnCount(3);
-            glDicer.setRowCount(2);
+            glDicer.setRowCount(3);
             for (final ImageView dice : dices) {
                 glDicer.addView(dice);
                 dice.getLayoutParams().height = 200;
@@ -98,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             glDicer.removeAllViews();
             glDicer.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
-            glDicer.setColumnCount(2);
+            glDicer.setColumnCount(3);
             glDicer.setRowCount(3);
             for (final ImageView dice : dices) {
                 glDicer.addView(dice);
@@ -118,8 +122,10 @@ public class MainActivity extends AppCompatActivity {
             GridLayout.LayoutParams param = new GridLayout.LayoutParams();
             param.height = GridLayout.LayoutParams.WRAP_CONTENT;
             param.width = GridLayout.LayoutParams.WRAP_CONTENT;
-            param.rightMargin = 5;
-            param.topMargin = 5;
+            param.rightMargin = 20;
+            param.topMargin = 20;
+            param.height = 200;
+            param.width = 200;
             param.setGravity(Gravity.CENTER);
             diceView.setLayoutParams(param);
             if (isLandscape()) {

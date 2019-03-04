@@ -11,31 +11,31 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dice Roll"
-        android:textSize="24dp"
-        android:layout_gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Dice Roll"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnHist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|right"
-            android:text="History"/>
+            android:text="History" />
 
         <LinearLayout
             android:id="@+id/llDice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_weight="0.5"
             android:gravity="center"
-            android:layout_weight="0.5">
+            android:orientation="horizontal">
 
             <GridLayout
                 android:id="@+id/glDice"
@@ -44,15 +44,13 @@
                 android:layout_gravity="fill">
 
 
-
-            <ImageView
-                android:id="@+id/imgDice1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/d1"
-                tools:srcCompat="@drawable/d1"
-                android:layout_marginRight="25dp"
-                android:layout_gravity="center"/>
+                <ImageView
+                    android:id="@+id/imgDice1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/d1"
+                    tools:srcCompat="@drawable/d1" />
 
             </GridLayout>
         </LinearLayout>
@@ -60,37 +58,33 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_gravity="center"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnPlus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+"
                 android:layout_weight="0.33"
-                android:textSize="18dp"
-                />
+                android:text="+"
+                android:textSize="18dp" />
 
             <Button
                 android:id="@+id/btnRoll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Roll"
-                android:layout_weight="0.33"/>
+                android:layout_weight="0.33"
+                android:text="Roll" />
 
             <Button
                 android:id="@+id/btnMinus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.33"
                 android:text="-"
-                android:textSize="18dp"
-                android:layout_weight="0.33"/>
+                android:textSize="18dp" />
         </LinearLayout>
-
-
-
 
 
     </LinearLayout>
