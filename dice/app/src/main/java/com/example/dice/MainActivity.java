@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
                     image1 = rand.nextInt(6) + 1;
                     sum = sum + image1;
                     String number = String.valueOf(image1) + " ";
-                    if (rollNumber == null) {
+                    if (rollNumber == null || rollNumber == "") {
                         rollNumber = number;
                     } else {
                         rollNumber = rollNumber + " + " + number;
