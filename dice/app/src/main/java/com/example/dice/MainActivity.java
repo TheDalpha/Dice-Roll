@@ -65,17 +65,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        if(isLandscape()){
-            glDicer.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
-            glDicer.setColumnCount(3);
-            glDicer.setRowCount(2);
-            dice1.getLayoutParams().height = 200;
-            dice1.getLayoutParams().width = 200;
-        } else {
-            glDicer.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
-            glDicer.setColumnCount(2);
-            glDicer.setRowCount(3);
-        }
+
+        glDicer.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
+        glDicer.setColumnCount(2);
+        glDicer.setRowCount(3);
+
 
         Button btnHist = findViewById(R.id.btnHist);
         btnHist.setOnClickListener(new View.OnClickListener() {
@@ -89,18 +83,26 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        ImageView dice1 = findViewById(R.id.imgDice1);
+        super.onConfigurationChanged(newConfig);
         GridLayout glDicer = findViewById(R.id.glDice);
         if (isLandscape()) {
+            glDicer.removeAllViews();
             glDicer.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
             glDicer.setColumnCount(3);
             glDicer.setRowCount(2);
-            dice1.getLayoutParams().height = 200;
-            dice1.getLayoutParams().width = 200;
+            for (final ImageView dice : dices) {
+                glDicer.addView(dice);
+                dice.getLayoutParams().height = 200;
+                dice.getLayoutParams().width = 200;
+            }
         } else {
+            glDicer.removeAllViews();
             glDicer.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
             glDicer.setColumnCount(2);
             glDicer.setRowCount(3);
+            for (final ImageView dice : dices) {
+                glDicer.addView(dice);
+            }
         }
     }
 
@@ -110,22 +112,22 @@ public class MainActivity extends AppCompatActivity {
             ImageView diceView = new ImageView(this);
 
 
-                diceView.setImageResource(R.drawable.d1);
+            diceView.setImageResource(R.drawable.d1);
 
-                glDicer.addView(diceView);
-                GridLayout.LayoutParams param = new GridLayout.LayoutParams();
-                param.height = GridLayout.LayoutParams.WRAP_CONTENT;
-                param.width = GridLayout.LayoutParams.WRAP_CONTENT;
-                param.rightMargin = 5;
-                param.topMargin = 5;
-                param.setGravity(Gravity.CENTER);
-                diceView.setLayoutParams(param);
-            if(isLandscape()){
+            glDicer.addView(diceView);
+            GridLayout.LayoutParams param = new GridLayout.LayoutParams();
+            param.height = GridLayout.LayoutParams.WRAP_CONTENT;
+            param.width = GridLayout.LayoutParams.WRAP_CONTENT;
+            param.rightMargin = 5;
+            param.topMargin = 5;
+            param.setGravity(Gravity.CENTER);
+            diceView.setLayoutParams(param);
+            if (isLandscape()) {
                 diceView.getLayoutParams().height = 200;
                 diceView.getLayoutParams().width = 200;
             }
-                dices.add(diceView);
-            }
+            dices.add(diceView);
+        }
 
         return null;
     }
@@ -138,37 +140,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void generateRandomNumber() {
-        for (final ImageView dice: dices) {
+        for (final ImageView dice : dices) {
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 public void run() {
 
 
-        Random rand = new Random();
-        image1 = rand.nextInt(6) + 1;
-        sum = sum + image1;
-        String number = String.valueOf(image1) + " ";
-        if (rollNumber == null) {
-            rollNumber = number;
-        } else {
-            rollNumber = rollNumber + " + " + number;
-        }
-        String img = "d" + image1;
-        Resources res = getResources();
-        int id = res.getIdentifier(img, "drawable", getPackageName());
-        dice.setImageResource(id);
+                    Random rand = new Random();
+                    image1 = rand.nextInt(6) + 1;
+                    sum = sum + image1;
+                    String number = String.valueOf(image1) + " ";
+                    if (rollNumber == null) {
+                        rollNumber = number;
+                    } else {
+                        rollNumber = rollNumber + " + " + number;
+                    }
+                    String img = "d" + image1;
+                    Resources res = getResources();
+                    int id = res.getIdentifier(img, "drawable", getPackageName());
+                    dice.setImageResource(id);
                 }
             }, 1000);
-        animate(dice);
+            animate(dice);
 
         }
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
                 rollNumber = rollNumber + "= " + String.valueOf(sum);
-        list.add(rollNumber);
-        rollNumber = "";
-        sum = 0;
+                list.add(rollNumber);
+                rollNumber = "";
+                sum = 0;
             }
         }, 1001);
     }
@@ -178,12 +180,12 @@ public class MainActivity extends AppCompatActivity {
         ListView tvList = findViewById(R.id.lvPrior);
         tvList.setAdapter(null);
     }
+
     private void animate(ImageView dice) {
         dice.startAnimation(anim1);
     }
 
-    private boolean isLandscape()
-    {
+    private boolean isLandscape() {
         Configuration config = getResources().getConfiguration();
         return config.orientation == config.ORIENTATION_LANDSCAPE;
     }
